@@ -4,7 +4,8 @@ const mongoose = require('mongoose');
 const moment = require('moment');
 
 //START MONGOOSE---------------------------------------
-mongoose.connect('mongodb://localhost/chatAPI2');
+mongoose.connect(process.env.MONGODB_URI||'mongodb://localhost/chatAPI2');
+
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
@@ -16,7 +17,7 @@ const User = mongoose.model('user',userSchema);
 
 //START EXPRESS-----------------------------------
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 var server = app.listen(port,()=>{
     console.log(`Listening port 3000`);
