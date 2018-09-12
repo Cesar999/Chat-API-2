@@ -14,15 +14,17 @@
     </div>
 
     <template id='temp-form-logIn'>
-            <div id="form-logIn">
-                <label for="username">Username</label>
-                <input name="username" type='text' id='username-logIn'/>
+            <div id="form-logIn">    
+                <label for="username-logIn">Username</label>
+                <input type='text' id='username-logIn'/>
                 <br/>
-                <label for='password'>Password</label>
-                <input name='password' type='text' id='password-logIn'/>
+                <label for='password-logIn'>Password</label>
+                <input type='text' id='password-logIn'/>
                 <br/>
-                <button class='btn' id='btn-logIn'>Log In</button>
-                <button class='btn' id='btn-to-signUp'>Sign Up</button>
+                <div class='btn-wrapper'>
+                    <button class='btn' id='btn-logIn'>Log In</button>
+                    <button class='btn' id='btn-to-signUp'>Sign Up</button>
+                </div>
             </div>
     </template>
 
@@ -46,7 +48,7 @@
             <h3 id='title-username'>Username</h3>
             <div id='chat-area-wrapper'> 
                 <ul id='list-users'>
-                    <li class='li-users'><a href='#'>Global</a></li>
+                    <li class='li-users'><a id='a_global' href='#'>Global</a></li>
                 </ul>
                 <div class='chat-area-class' id="chat-area-global"></div>
             </div>

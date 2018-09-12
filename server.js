@@ -69,9 +69,13 @@ io.sockets.on('connection',(socket)=>{
     });
 
     socket.on('send message',(data)=>{
-        users[data.to].emit('private', {msg: data.msg, nick: data.to, to: socket.nickname});
+        users[data.to].emit('private', {msg: data.msg, nick:socket.nickname, to: socket.nickname});
 
         users[socket.nickname].emit('private', {msg: data.msg, nick: socket.nickname, to: data.to});
+    });
+
+    socket.on('send global message',(data)=>{
+        io.sockets.emit('get global message', {msg: data.msg, nick: socket.nickname});
     });
 
     socket.on('disconnect',()=>{ 

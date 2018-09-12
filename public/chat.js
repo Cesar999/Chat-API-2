@@ -3,6 +3,7 @@ const socket = io.connect();
 const users_memory = [];
 let mainUser='';
 let route_user;
+let global_flag = true;
 
 first_logIn();
 
@@ -102,8 +103,22 @@ function startChat(username){
 
     sendBtn.addEventListener('click',(e)=>{
         e.preventDefault();
-        socket.emit('send message',{msg: sendBox.value, to: route_user});
+        if(global_flag){
+            socket.emit('send global message',{msg: sendBox.value});
+        }else{
+            socket.emit('send message',{msg: sendBox.value, to: route_user});
+        }
         sendBox.value = '';
+    });
+
+    let a_global= document.getElementById('a_global');
+    a_global.addEventListener('click',function(e){
+        let chatTitle = document.getElementById('title-username')
+        let username = mainUser;
+        chatTitle.innerText = '';
+        chatTitle.innerText = `${username} to global`;
+        global_flag=true;
+        changeChat();
     });
 
 }
@@ -133,6 +148,7 @@ socket.on('list usernames',(data)=>{
             let username = mainUser;
             chatTitle.innerText = '';
             chatTitle.innerText = `${username} to ${route_user}`;
+            global_flag = false;
             changeChat();
         });
         listUsers.appendChild(li);
@@ -155,19 +171,34 @@ function changeChat(){
     let wrapper = document.getElementById(`chat-area-wrapper`);
     let d_array = wrapper.getElementsByTagName('DIV');
     d_array = Array.from(d_array);
-
+    console.log(global_flag);
         for(element of d_array){
-            if(element.id===`chat-area-${route_user}`){
-                element.style.display = 'block';
-                temp = `chat-area-${route_user}`;
+            if(global_flag){
+                if(element.id===`chat-area-global`){
+                    element.style.display = 'block';
+                }
+                else{
+                    element.style.display = 'none'; 
+                }
             }
             else{
-                element.style.display = 'none'; 
+                if(element.id===`chat-area-${route_user}`){
+                    element.style.display = 'block';
+                }
+                else{
+                    element.style.display = 'none'; 
+                }
             }
+
         }
 }
 
 socket.on('private',(data)=>{
     let chatBox = document.getElementById(`chat-area-${data.to}`);
-    chatBox.innerHTML += `<span class='whisper'><strong>${data.nick}</strong>: ${data.msg}</span<><br/>`;
+    chatBox.innerHTML += `<span><strong>${data.nick}</strong>: ${data.msg}</span<><br/>`;
+});
+
+socket.on('get global message',(data)=>{
+    let chatBox = document.getElementById(`chat-area-global`);
+    chatBox.innerHTML += `<span class='global'><strong>${data.nick}</strong>: ${data.msg}</span<><br/>`;
 });
