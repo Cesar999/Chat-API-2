@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    background-color: rgba(212, 212, 212, 0.808);
+}
+
+.btn{
+    color: orangered;
+    margin: 5px;
+    background-color: rgb(240, 240, 240);
+    border: 2px solid orangered;
+    border-radius: 6px;
+    padding: 2px 6px;
+}
+
+#btn-logOut{
+    float: right;
+}
+
+#form-logIn{
+    height: 100px;
+    width: 300px;
+    background-color: rgb(173, 50, 173);
+    box-shadow: 10px 10px 8px #888888;
+    margin: 20px;
+    border: 2px solid white;
+    border-radius: 6px;
+}
+
+#form-signUp{
+    height: 100px;
+    width: 300px;
+    background-color: rgb(50, 173, 87);
+    box-shadow: 10px 10px 8px #888888;
+    margin: 20px;
+    border: 2px solid white;
+    border-radius: 6px;
+}
+
+#chat-content{
+    height: 400px;
+    width: 400px;
+    background-color: rgb(50, 124, 173);
+    box-shadow: 10px 10px 8px #888888;
+    margin: 20px;
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+    position: relative; 
+    border-radius: 6px;
+}
+
+#chat-area-wrapper{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.chat-area-class{
+    border: 2px solid black;
+    background-color: white;
+    height: 100%;
+    width: 85%;
+    border-radius: 6px;
+}
+
+#chat-area-menu{
+    position: absolute;
+    bottom: 0;
+    background-color: rgb(40, 40, 158);
+    width: 100%;
+    border-radius: 6px;
+}
+
+#list-users{
+    flex-direction: column;
+    height: 100%;
+    width: 15%;
+    text-align: center;
+    list-style: none;
+    border-top: 2px solid black;
+}
+
+#list-users{
+    background-color: #e4e2e2;
+}
+
+.li-users a{
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
+.li-users{
+    border: 2px solid rgb(255, 255, 255);
+    background-color: orangered;
+    width: 100%;
+    color: white;
+}
+
+
+.li-users:hover{
+    border: 2px solid orangered;
+    background-color:white;
+    width: 100%;
+    color: orangered;
+    cursor: pointer;
+}
+
+#box-send{
+    margin-left: 10px;
+}
+
+#title-username{
+    color: white;
+    text-align: center;
+}
+
+.whisper{
+    color: palevioletred;
+}
