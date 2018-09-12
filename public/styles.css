@@ -159,3 +159,7 @@ body{
 .global{
     color: rgb(226, 35, 99);
 }
+
+.date{
+    color: rgb(185, 185, 185);
+}
