@@ -146,8 +146,8 @@ socket.on('list usernames',(data)=>{
             route_user = e.target.innerText;
             let chatTitle = document.getElementById('title-username')
             let username = mainUser;
-            chatTitle.innerText = '';
-            chatTitle.innerText = `${username} to ${route_user}`;
+            chatTitle.innerHTML = '';
+            chatTitle.innerHTML = `<span>${username}</span> to <span>${route_user}</span>`;
             global_flag = false;
             changeChat();
         });

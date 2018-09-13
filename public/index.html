@@ -5,47 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="styles.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>Chat||Index</title>
 </head>
 <body>
-    <h1>Chat Index</h1>
-
     <div id='main-content'>
     </div>
 
     <template id='temp-form-logIn'>
-            <div id="form-logIn">    
-                <label for="username-logIn">Username</label>
+            <div id="form-logIn">  
+                <h1>CHAT FIRE <span class="glyphicon glyphicon-fire fire"></span></h1>
+                <label for="username-logIn">USERNAME</label>
                 <input type='text' id='username-logIn'/>
-                <br/>
-                <label for='password-logIn'>Password</label>
-                <input type='text' id='password-logIn'/>
-                <br/>
+                <label for='password-logIn'>PASSWORD</label>
+                <input type='password' id='password-logIn'/>
                 <div class='btn-wrapper'>
-                    <button class='btn' id='btn-logIn'>Log In</button>
-                    <button class='btn' id='btn-to-signUp'>Sign Up</button>
+                    <button class='btn' id='btn-logIn'>LOG IN</button>
+                    <button class='btn' id='btn-to-signUp'>SIGN UP</button>
                 </div>
             </div>
     </template>
 
     <template id='temp-form-signUp'>
         <div id="form-signUp">
-            <label for="username">Username</label>
-            <input name="username" type='text' id='username-signUp'/>
-            <br/>
-            <label for='password1'>Password</label>
-            <input name='password1' type='text' id='password1-signUp'/>
-            <br/>
-            <label for='password2'>Password</label>
-            <input name='password2' type='text' id='password2-signUp'/>
-            <br/>
-            <button class='btn' id='btn-signUp'>Sign Up</button>
+            <h1>CHAT FIRE <span class="glyphicon glyphicon-fire fire"></span></h1>
+            <label for="username">USERNAME</label>
+            <input type='text' id='username-signUp' autocomplete="off"/>
+            <label for='password1'>PASSWORD</label>
+            <input type='password' id='password1-signUp'/>
+            <label for='password2'>PASSWORD</label>
+            <input type='password' id='password2-signUp'/>
+            <button class='btn' id='btn-signUp'>SIGN UP</button>
         </div>
     </template>
 
     <template id='temp-chat-content'>
         <div id="chat-content">
-            <h3 id='title-username'>Username</h3>
+            <div id='title-container'><h3 id='title-username'>Username</h3></div>
             <div id='chat-area-wrapper'> 
                 <ul id='list-users'>
                     <li class='li-users'><a id='a_global' href='#'>Global</a></li>
@@ -53,9 +49,9 @@
                 <div class='chat-area-class' id="chat-area-global"></div>
             </div>
             <div id="chat-area-menu">
+                <button class='btn' id="btn-logOut">LOG OUT</button>
                 <input type='text' id='box-send'/>
-                <button class='btn' id="btn-send">Send</button>
-                <button class='btn' id="btn-logOut">Log Out</button>
+                <button class='btn' id="btn-send">SEND</button>
             </div>
         </div>
     </template>

@@ -1,165 +1,255 @@
+@font-face {
+    font-family: myFont;
+    /* src: url('ComicRelief.ttf');
+    src: url('Casper.ttf'); */
+    src: url('Signika-Regular.ttf');
+}
+
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    font-size: 1.1em;
+    font-family: myFont;
 }
 
 body{
-    width: 100%;
-    background-color: rgba(212, 212, 212, 0.808);
+    height: 100vh;
+    background: linear-gradient(215deg, #e66465, #9198e5);
 }
 
-.btn{
-    color: orangered;
-    margin: 5px;
-    background-color: rgb(255, 255, 255);
-    border: 2px solid orangered;
-    border-radius: 6px;
-    padding: 2px 6px;
+#main-content{
+margin-top: 2%; 
+width: 100%;
+display: flex;
+justify-content: center;
+}
+
+/*Log In template*/
+
+#form-logIn, #form-signUp{
+    width: 50%;
+    margin-left: 2%;
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+    padding: .5em;
+    padding: 0;
+    border-radius: 20px;
+    /* background: linear-gradient(135deg, #e66465, #9198e5); */
+    background-color: #9198e5;
+    box-shadow: 10px 10px 8px #1d1d1d48;
+}
+
+#form-logIn .fire, #form-signUp .fire{
+    color:#e66465;
+    transition: 1s;
+    margin-left: 1%;
+}
+
+#form-logIn .fire:Hover, #form-signUp .fire:Hover{
+    transition: 1s;
+    transform: scale(2);
     cursor: pointer;
 }
 
-.btn:hover{
-    color: white;
-    margin: 5px;
-    background-color: orangered;
-    border: 2px solid white;
-}
-
-#btn-logOut{
-    float: right;
-}
-
-#form-logIn{
-    height: 130px;
-    width: 300px;
-    background-color: rgb(185, 41, 185);
-    box-shadow: 10px 10px 8px #888888;
-    margin: 20px;
-    border: 2px solid white;
-    border-radius: 6px;
+#form-logIn h1, #form-signUp h1{
+    color:white; 
+    font-weight: 600;
     text-align: center;
-    position: relative;
-}
-#form-logIn input{
-    width: 60%;
-    float: right;
-    margin: 20px 20px 0 0px;
-}
-#form-logIn label{
-    float: left;
-    margin: 20px 0 0 20px;
-    color: white;
-    font-weight: 800;
 }
 
-.btn-wrapper{
-    display: flex;
+#form-logIn label, #form-signUp label{
     text-align: center;
-    position: absolute;
-    bottom: 0;
-    left: 80px;
+    font-weight: 600;
+    color: white;
+    padding-top: .7em;  
 }
 
-.btn-wrapper .btn{
-    margin: 0 0 10px 30px;
+#form-logIn input, #form-signUp input{
+    text-align: center;
+    margin: 0 6%;  
+    background-color: rgba(255, 255, 255, 0.335);
+    border: 0px solid white;
+    border-radius: 10px;
+    padding: .2em;  
+    color: white;
+    font-size: 1.2em;
 }
 
-
-#form-signUp{
-    height: 100px;
-    width: 300px;
-    background-color: rgb(50, 173, 87);
-    box-shadow: 10px 10px 8px #888888;
-    margin: 20px;
-    border: 2px solid white;
-    border-radius: 6px;
+#form-logIn button, #form-signUp button{
+    text-align: center;
+    font-size: 0.9em;
+    font-weight: 500;
+    padding: 0.6em;  
+    margin: 3% -6% 3% 18%;      
+    border-radius: 60px; 
+    border: 0px solid white;
+    color: white;
+    background-color: #e66465;
+    width: 26%;
+    transition: 0.6s;
 }
+
+#form-signUp button{
+    margin-left: 38%;
+}
+
+#form-logIn button:hover, #form-signUp button:hover{
+    transition: 0.6s;
+    border: 0px solid #e66465;
+    color: #e66465;
+    background-color: white;
+    cursor: pointer;
+}
+
+/*Log In ans Sign Up template END*/
 
 #chat-content{
-    height: 400px;
-    width: 400px;
-    background-color: rgb(50, 124, 173);
-    box-shadow: 10px 10px 8px #888888;
-    margin: 20px;
-    border: 2px solid white;
+    width: 80%;
+    height: 580px;
+    border: 4px solid white;
+    background-color: white;
+    text-align: center;
     display: flex;
     flex-direction: column;
-    position: relative; 
-    border-radius: 6px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 8px #1d1d1d48;
+}
+
+#chat-content *{
+    box-sizing: border-box;
+}
+
+#title-container{
+    border: 4px solid rgb(252, 252, 252);
+    border-radius: 10px;
+    background-color: #e66465;
+}
+
+#chat-content h3{
+    color: white;
+    font-size: 2em;
+    font-weight: 600;
+    margin: 1% 0;
+    border-radius: 10px;
 }
 
 #chat-area-wrapper{
+    border: 4px solid rgb(255, 255, 255);
+    height: 73%;
+    border-radius: 10px;
+}
+
+#list-users{    
+    /* flex-direction: column; */
+    text-align: center;
+    list-style: none;
+    border: 6px solid #e66465;
+    float:left;
+    width:25%;
+    overflow:hidden;
     height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
+    background-color: #9198e581;
+    border-radius: 10px;
 }
 
 .chat-area-class{
-    border: 2px solid black;
+    float:left;
+    width:75%;
+    overflow:hidden;
+    height: 100%;
+    border: 6px solid #9198e5;
     background-color: white;
-    height: 100%;
-    width: 85%;
-    border-radius: 6px;
-}
-
-#chat-area-menu{
-    position: absolute;
-    bottom: 0;
-    background-color: rgb(40, 40, 158);
-    width: 100%;
-    border-radius: 6px;
-}
-
-#list-users{
-    flex-direction: column;
-    height: 100%;
-    width: 15%;
-    text-align: center;
-    list-style: none;
-    border-top: 2px solid black;
-}
-
-#list-users{
-    background-color: #e4e2e2;
-}
-
-.li-users a{
-    width: 100%;
-    text-decoration: none;
-    color: inherit;
+    text-align: left;
+    border-radius: 10px;
+    padding-left: 1%;
 }
 
 .li-users{
-    border: 2px solid rgb(255, 255, 255);
-    background-color: orangered;
+    border-radius: 10px;
+    height: 9%;
+}
+
+.li-users a{
+    display: block;
     width: 100%;
+    text-decoration: none;
+    /* border: 4px solid #9198e5; */
+    background-color: #9198e5;
     color: white;
 }
 
-
-.li-users:hover{
-    border: 2px solid orangered;
+a:hover, a:focus{
+    text-decoration: none!important;
+    /* border: 4px solid #e66465; */
     background-color:white;
-    width: 100%;
-    color: orangered;
+    color: #9198e5!important;
     cursor: pointer;
 }
 
-#box-send{
-    margin-left: 10px;
+#chat-area-menu{
+    border: 4px solid rgb(255, 255, 255);
+    height: 10%;
+    background-color: #9198e5;
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    border-radius: 10px;
 }
 
-#title-username{
+#chat-area-menu button{
+    margin: 1.5% 0;
+    font-size: 1.1em;
+    font-weight: 500;
+    padding: 0.4em;       
+    border-radius: 60px; 
+    border: 0px solid white;
     color: white;
-    text-align: center;
+    background-color: #e66465;
+    width: 18%;
 }
 
-.global{
-    color: rgb(226, 35, 99);
+#chat-area-menu button:hover{
+    transition: 0.6s;
+    border: 0px solid #e66465;
+    color: #e66465;
+    background-color: white;
+    cursor: pointer;
+}
+
+#chat-area-menu input{
+    background-color: white;
+    border: 0px solid white;
+    border-radius: 10px;
+    padding: .2em;  
+    color: black;
+    font-size: 1.2em;
+    margin: 1.5% 0;;
+    width: 50%
+    /* margin-left: -10%; */
+}
+
+#box-send{
+    margin-left: 6%!important;
+}
+
+#btn-send{
+    margin-left: 2%!important;
+}
+
+#btn-logOut{
+    margin-left: 2%!important;
 }
 
 .date{
-    color: rgb(185, 185, 185);
+    color: gray;
+    font-size: 0.9em;
+}
+
+.local{
+    color:#9198e5;
+}
+
+.foreign{
+    color: #e66465;
 }
