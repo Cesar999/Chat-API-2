@@ -169,7 +169,7 @@ socket.on('list usernames',(data)=>{
 
 function changeChat(){
     let wrapper = document.getElementById(`chat-area-wrapper`);
-    let d_array = wrapper.getElementsByTagName('DIV');
+    let d_array = wrapper.getElementsByClassName('chat-area-class');
     d_array = Array.from(d_array);
     console.log(global_flag);
         for(element of d_array){
