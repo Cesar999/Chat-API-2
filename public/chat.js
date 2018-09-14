@@ -203,6 +203,8 @@ socket.on('private',(data)=>{
 
     let chatBox = document.getElementById(`chat-area-${data.to}`);
     chatBox.innerHTML += `<div class='msg-wrapper'><span class='${color}'><strong>${data.nick}</strong>: ${data.msg}</span> &nbsp <sub class='date'>${data.date}</sub></div></br>`;
+
+    scrolledBaby();
 });
 
 socket.on('get global message',(data)=>{
