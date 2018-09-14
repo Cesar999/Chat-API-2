@@ -137,13 +137,17 @@ socket.on('list usernames',(data)=>{
         }
     }
 
-
     for(user of arr){
         let li = document.createElement('li');
-        li.innerHTML = `<a href='#'>${user}</a>`;
+        li.innerHTML = `<a href='${user}'>${user}</a>`;
         li.className = 'li-users';
         li.firstChild.addEventListener('click',function(e){
+            e.preventDefault();
             route_user = e.target.innerText;
+
+            e.target.style.backgroundColor="#9198e5";
+            li.firstChild.style.animationName = "";
+
             let chatTitle = document.getElementById('title-username')
             let username = mainUser;
             chatTitle.innerHTML = '';
@@ -151,9 +155,11 @@ socket.on('list usernames',(data)=>{
             global_flag = false;
             changeChat();
         });
+
         listUsers.appendChild(li);
 
-        if(users_memory.includes(user)){}
+        if(users_memory.includes(user)){
+        }
         else{
             users_memory.push(user);
             let wrapper = document.getElementById(`chat-area-wrapper`);
@@ -184,6 +190,7 @@ function changeChat(){
             else{
                 if(element.id===`chat-area-${route_user}`){
                     element.style.display = 'block';
+
                 }
                 else{
                     element.style.display = 'none'; 
@@ -194,26 +201,16 @@ function changeChat(){
 }
 
 socket.on('private',(data)=>{
-    let color;
-    if(mainUser===data.nick){
-        color='local';
-    }else{
-        color='foreign';
-    }
+    let color=colorUser_Links(data);
 
     let chatBox = document.getElementById(`chat-area-${data.to}`);
     chatBox.innerHTML += `<div class='msg-wrapper'><span class='${color}'><strong>${data.nick}</strong>: ${data.msg}</span> &nbsp <sub class='date'>${data.date}</sub></div></br>`;
-
+    
     scrolledBaby(chatBox);
 });
 
 socket.on('get global message',(data)=>{
-    let color;
-    if(mainUser===data.nick){
-        color='local';
-    }else{
-        color='foreign';
-    }
+    let color=colorUser_Links(data);
     
     let chatBox = document.getElementById(`chat-area-global`);
     chatBox.innerHTML += `<div class='msg-wrapper'><span class='global ${color}'><strong>${data.nick}</strong>: ${data.msg}</span> &nbsp <sub class='date'>${data.date}</sub></div><br/>`;
@@ -221,6 +218,23 @@ socket.on('get global message',(data)=>{
     scrolledBaby(chatBox);
 });
 
+function colorUser_Links(data){
+    if(mainUser===data.nick){
+       color='local';
+    }else{
+       let li_arr = document.getElementsByTagName('LI');
+        li_arr = Array.from(li_arr);
+        for(li of li_arr){
+            if(li.firstChild.innerText===data.to){
+                console.log(li.firstChild.innerText,data.to);
+                
+                li.firstChild.style.animationName = "new_msg";
+                li.firstChild.style.backgroundColor = "#8cc771";
+            }
+        }
+        return color='foreign';
+    }
+}
 
 function scrolledBaby(chatBox) {
     chatBox.scrollTop = chatBox.scrollHeight;
