@@ -105,6 +105,8 @@ justify-content: center;
 /*Log In ans Sign Up template END*/
 
 #chat-content{
+    min-width: 530px;
+    max-width: 890px;
     width: 80%;
     height: 580px;
     border: 4px solid white;
@@ -154,7 +156,7 @@ justify-content: center;
 }
 
 .chat-area-class{
-    float:left;
+    /* float:left; */
     width:75%;
     overflow:hidden;
     height: 100%;
@@ -163,6 +165,13 @@ justify-content: center;
     text-align: left;
     border-radius: 10px;
     padding-left: 1%;
+    overflow-y: scroll; 
+}
+
+.msg-wrapper{
+    width: 100%;
+    display: inline-block;
+    overflow-wrap: break-word; 
 }
 
 .li-users{
@@ -198,7 +207,7 @@ a:hover, a:focus{
 }
 
 #chat-area-menu button{
-    margin: 1.5% 0;
+    margin: 1% 0;
     font-size: 1.1em;
     font-weight: 500;
     padding: 0.4em;       
@@ -207,6 +216,8 @@ a:hover, a:focus{
     color: white;
     background-color: #e66465;
     width: 18%;
+    min-width: 100px;
+    min-height: 40px;
 }
 
 #chat-area-menu button:hover{
@@ -231,6 +242,7 @@ a:hover, a:focus{
 
 #box-send{
     margin-left: 6%!important;
+    min-width: 200px;
 }
 
 #btn-send{
@@ -241,10 +253,16 @@ a:hover, a:focus{
     margin-left: 2%!important;
 }
 
-.date{
-    color: gray;
-    font-size: 0.9em;
+.msg-wrapper{
+    display: inline-block;
 }
+
+.date{
+    color: rgb(97, 97, 97);
+    font-size: 0.6em;
+    font: italic;
+}
+
 
 .local{
     color:#9198e5;

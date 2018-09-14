@@ -81,7 +81,7 @@ function signUp_User(){
 function startChat(username){
     mainUser = username;
     changeContent("temp-chat-content");
-    document.getElementById('title-username').innerHTML=username;
+    document.getElementById('title-username').innerText= `${username} to Global`;
 
     const btnLogOut = document.getElementById('btn-logOut');
     btnLogOut.addEventListener('click',(e)=>{
@@ -116,7 +116,7 @@ function startChat(username){
         let chatTitle = document.getElementById('title-username')
         let username = mainUser;
         chatTitle.innerText = '';
-        chatTitle.innerText = `${username} to global`;
+        chatTitle.innerText = `${username} to Global`;
         global_flag=true;
         changeChat();
     });
@@ -194,11 +194,33 @@ function changeChat(){
 }
 
 socket.on('private',(data)=>{
+    let color;
+    if(mainUser===data.nick){
+        color='local';
+    }else{
+        color='foreign';
+    }
+
     let chatBox = document.getElementById(`chat-area-${data.to}`);
-    chatBox.innerHTML += `<span><strong>${data.nick}</strong>: ${data.msg}</span> - <em class='date'>${data.date}</em><br/>`;
+    chatBox.innerHTML += `<div class='msg-wrapper'><span class='${color}'><strong>${data.nick}</strong>: ${data.msg}</span> &nbsp <sub class='date'>${data.date}</sub></div></br>`;
 });
 
 socket.on('get global message',(data)=>{
+    let color;
+    if(mainUser===data.nick){
+        color='local';
+    }else{
+        color='foreign';
+    }
+    
     let chatBox = document.getElementById(`chat-area-global`);
-    chatBox.innerHTML += `<span class='global'><strong>${data.nick}</strong>: ${data.msg}</span> - <em class='date'>${data.date}</em><br/>`;
+    chatBox.innerHTML += `<div class='msg-wrapper'><span class='global ${color}'><strong>${data.nick}</strong>: ${data.msg}</span> &nbsp <sub class='date'>${data.date}</sub></div><br/>`;
+
+    scrolledBaby();
 });
+
+
+function scrolledBaby() {
+    const elment = document.getElementsByClassName("chat-area-class");
+    elment[0].scrollTop = elment[0].scrollHeight;
+}

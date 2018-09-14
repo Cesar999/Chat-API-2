@@ -72,7 +72,7 @@ io.sockets.on('connection',(socket)=>{
     });
 
     socket.on('send message',(data)=>{
-        users[data.to].emit('private', {msg: data.msg, nick:socket.nickname, to: socket.nickname, date:moment().format('MMMM Do YYYY, h:mm:ss a')});
+        users[data.to].emit('private', {msg: data.msg, nick:socket.nickname, to: socket.nickname, date:moment().format('MMM Do YY, h:mm:ss a')});
 
         users[socket.nickname].emit('private', {msg: data.msg, nick: socket.nickname, to: data.to, date:moment().tz("America/Los_Angeles").format('MMM Do YY, h:mm:ss a')});
     });
