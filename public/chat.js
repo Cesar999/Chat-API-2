@@ -204,7 +204,7 @@ socket.on('private',(data)=>{
     let chatBox = document.getElementById(`chat-area-${data.to}`);
     chatBox.innerHTML += `<div class='msg-wrapper'><span class='${color}'><strong>${data.nick}</strong>: ${data.msg}</span> &nbsp <sub class='date'>${data.date}</sub></div></br>`;
 
-    scrolledBaby();
+    scrolledBaby(chatBox);
 });
 
 socket.on('get global message',(data)=>{
@@ -218,11 +218,10 @@ socket.on('get global message',(data)=>{
     let chatBox = document.getElementById(`chat-area-global`);
     chatBox.innerHTML += `<div class='msg-wrapper'><span class='global ${color}'><strong>${data.nick}</strong>: ${data.msg}</span> &nbsp <sub class='date'>${data.date}</sub></div><br/>`;
 
-    scrolledBaby();
+    scrolledBaby(chatBox);
 });
 
 
-function scrolledBaby() {
-    const elment = document.getElementsByClassName("chat-area-class");
-    elment[0].scrollTop = elment[0].scrollHeight;
+function scrolledBaby(chatBox) {
+    chatBox.scrollTop = chatBox.scrollHeight;
 }
