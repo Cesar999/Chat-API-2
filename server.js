@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const moment = require('moment');
 
 //START MONGOOSE---------------------------------------
-mongoose.connect(process.env.MONGODB_URI||'mongodb://localhost/chatAPI2');
+mongoose.connect(process.env.MONGODB_URI||'mongodb://localhost/chatAPI2',{ useNewUrlParser: true });
 
 const Schema = mongoose.Schema;
 

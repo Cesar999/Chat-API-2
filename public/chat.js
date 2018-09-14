@@ -194,13 +194,11 @@ function changeChat(){
 }
 
 socket.on('private',(data)=>{
-    let current_date = moment().format('MMM Do YY, h:mm:ss a');
     let chatBox = document.getElementById(`chat-area-${data.to}`);
-    chatBox.innerHTML += `<span><strong>${data.nick}</strong>: ${data.msg}</span> - <em class='date'>${current_date}</em><br/>`;
+    chatBox.innerHTML += `<span><strong>${data.nick}</strong>: ${data.msg}</span> - <em class='date'>${data.date}</em><br/>`;
 });
 
 socket.on('get global message',(data)=>{
-    let current_date = moment().format('MMM Do YY, h:mm:ss a');
     let chatBox = document.getElementById(`chat-area-global`);
-    chatBox.innerHTML += `<span class='global'><strong>${data.nick}</strong>: ${data.msg}</span> - <em class='date'>${current_date}</em><br/>`;
+    chatBox.innerHTML += `<span class='global'><strong>${data.nick}</strong>: ${data.msg}</span> - <em class='date'>${data.date}</em><br/>`;
 });
