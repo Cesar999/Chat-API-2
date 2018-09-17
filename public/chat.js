@@ -87,6 +87,7 @@ function startChat(username){
     btnLogOut.addEventListener('click',(e)=>{
         e.preventDefault();
         first_logIn();
+        window.location.reload(true);
     });
 
     socket.emit('user online',{username});

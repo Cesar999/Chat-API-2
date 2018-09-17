@@ -27,6 +27,7 @@ justify-content: center;
 /*Log In template*/
 
 #form-logIn, #form-signUp{
+    min-width: 330px;
     width: 50%;
     margin-left: 2%;
     font-size: 1.2em;
